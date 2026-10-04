@@ -224,10 +224,10 @@
     <div class="app-container">
 
         <!-- ヘッダー -->
-        <header class="bg-white border-b border-slate-200 px-3 py-2 no-print shrink-0 shadow-sm">
+        <header class="bg-white border-b border-slate-200 px-3 py-1.5 no-print shrink-0 shadow-sm">
             <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
                 <div class="flex items-center space-x-2">
-                    <div class="bg-amber-400 text-slate-900 px-2 py-0.5 rounded-xl text-base font-black shadow-sm">
+                    <div class="bg-amber-400 text-slate-900 px-2 py-0.5 rounded-xl text-lg font-black shadow-sm">
                         🏫
                     </div>
                     <h1 class="text-base sm:text-lg md:text-xl font-black text-slate-800 tracking-tight">学校用 席替えアプリ</h1>
@@ -235,11 +235,11 @@
 
                 <div class="flex items-center space-x-1.5 sm:space-x-2">
                     <!-- 保存・読み込みボタン -->
-                    <button onclick="exportLayoutData()" class="px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs md:text-sm shadow-md flex items-center gap-1 transition transform active:scale-95">
+                    <button onclick="exportLayoutData()" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs md:text-sm shadow-md flex items-center gap-1 transition transform active:scale-95">
                         <span>💾</span>
                         <span class="hidden sm:inline">保存</span>
                     </button>
-                    <label class="px-2.5 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs md:text-sm shadow-md flex items-center gap-1 transition transform active:scale-95 cursor-pointer">
+                    <label class="px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs md:text-sm shadow-md flex items-center gap-1 transition transform active:scale-95 cursor-pointer">
                         <span>📂</span>
                         <span class="hidden sm:inline">読み込み</span>
                         <input type="file" accept=".json" onchange="importLayoutData(event)" class="hidden">
@@ -266,31 +266,32 @@
             <!-- タブ切替 -->
             <div class="flex justify-between items-center border-b border-slate-300 mb-2 no-print shrink-0 gap-2">
                 <div class="flex gap-1.5 sm:gap-2">
-                    <button id="tabBtn1" onclick="switchTab('setup')" class="px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm">
+                    <button id="tabBtn1" onclick="switchTab('setup')" class="px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm">
                         ⚙ <span class="hidden sm:inline">1. 初期設定 & 名簿</span><span class="sm:hidden">設定</span>
                     </button>
-                    <button id="tabBtn2" onclick="switchTab('chart')" class="px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1">
+                    <button id="tabBtn2" onclick="switchTab('chart')" class="px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1">
                         🎲 <span class="hidden sm:inline">2. 座席配置 & 抽選</span><span class="sm:hidden">座席・抽選</span>
                     </button>
                 </div>
 
-                <button onclick="openPrintModal()" class="text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-2.5 py-1 sm:py-1.5 rounded-xl border border-indigo-200 flex items-center gap-1 transition shadow-sm">
+                <button onclick="openPrintModal()" class="text-xs sm:text-sm font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl border border-indigo-200 flex items-center gap-1 transition shadow-sm">
                     <span>📄 両視点PDF</span>
                 </button>
             </div>
 
             <!-- タブ1: 初期設定画面 -->
-            <div id="tabSetup" class="flex-1 flex flex-col no-print overflow-y-auto p-1 max-w-6xl mx-auto w-full space-y-3 sm:space-y-4">
+            <div id="tabSetup" class="flex-1 flex flex-col no-print max-w-7xl mx-auto w-full min-h-0 overflow-hidden">
                 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 h-full min-h-0 items-stretch">
                     
                     <!-- ステップ1: 学級・月・レイアウト設定 -->
-                    <div class="md:col-span-5 bg-white border border-slate-200 p-4 sm:p-5 rounded-2xl flex flex-col justify-between shadow-md space-y-3 sm:space-y-4">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                    <div class="md:col-span-5 bg-white border border-slate-200 p-3.5 sm:p-4 rounded-2xl flex flex-col justify-between shadow-md h-full min-h-0 overflow-hidden">
+                        <div class="flex flex-col justify-between h-full space-y-2 min-h-0">
+                            <!-- ヘッダー -->
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-1.5 shrink-0">
                                 <div class="flex items-center gap-2">
                                     <span class="bg-amber-400 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded-full shadow-sm">STEP 1</span>
-                                    <h2 class="text-sm md:text-base font-black text-slate-800">学級基本情報 & レイアウト</h2>
+                                    <h2 class="text-base md:text-lg font-black text-slate-800">学級基本情報 & レイアウト</h2>
                                 </div>
                                 <button onclick="resetStep1Settings()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 font-extrabold text-xs px-2.5 py-1 rounded-lg border border-rose-200 flex items-center gap-1 transition active:scale-95 shadow-sm">
                                     🔄 <span>リセット</span>
@@ -298,10 +299,10 @@
                             </div>
 
                             <!-- 学年・組・月 プルダウン設定エリア -->
-                            <div class="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                            <div class="grid grid-cols-3 gap-2 bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200 shrink-0">
                                 <div>
-                                    <label class="block text-xs font-extrabold text-slate-600 mb-1">学年</label>
-                                    <select id="gradeSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
+                                    <label class="block text-xs sm:text-sm font-extrabold text-slate-700 mb-0.5">学年</label>
+                                    <select id="gradeSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-sm sm:text-base font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
                                         <option value="">未選択</option>
                                         <option value="1年">1年</option>
                                         <option value="2年">2年</option>
@@ -312,8 +313,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-extrabold text-slate-600 mb-1">組</label>
-                                    <select id="classSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
+                                    <label class="block text-xs sm:text-sm font-extrabold text-slate-700 mb-0.5">組</label>
+                                    <select id="classSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-sm sm:text-base font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
                                         <option value="">未選択</option>
                                         <option value="1組">1組</option>
                                         <option value="2組">2組</option>
@@ -326,8 +327,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-extrabold text-slate-600 mb-1">対象月</label>
-                                    <select id="monthSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
+                                    <label class="block text-xs sm:text-sm font-extrabold text-slate-700 mb-0.5">対象月</label>
+                                    <select id="monthSelect" class="w-full px-2 py-1.5 bg-white border border-slate-300 rounded-xl text-sm sm:text-base font-black text-amber-600 focus:outline-none focus:border-amber-500 shadow-sm">
                                         <option value="">未選択</option>
                                         <option value="4月">4月</option>
                                         <option value="5月">5月</option>
@@ -345,107 +346,107 @@
                                 </div>
                             </div>
 
-                            <p class="text-xs text-slate-500 leading-relaxed font-bold">
-                                生徒人数と教室の縦横の座席数を設定します。
-                            </p>
+                            <!-- 行列数設定 -->
+                            <div class="grid grid-cols-2 gap-2 sm:gap-3 shrink-0">
+                                <div class="bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200 text-center">
+                                    <label class="block text-xs sm:text-sm font-extrabold text-slate-700 mb-0.5">縦 (行数)</label>
+                                    <div class="flex items-center justify-center gap-1.5">
+                                        <input type="number" id="rowsInput" min="1" max="12" value="6" oninput="handleGridInputChange();" onchange="handleGridInputChange();" class="w-16 px-2 py-1 bg-white border border-slate-300 rounded-xl text-center font-black text-lg sm:text-xl text-amber-600 shadow-sm">
+                                        <span class="text-xs sm:text-sm text-slate-700 font-extrabold">行</span>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200 text-center">
+                                    <label class="block text-xs sm:text-sm font-extrabold text-slate-700 mb-0.5">横 (列数)</label>
+                                    <div class="flex items-center justify-center gap-1.5">
+                                        <input type="number" id="colsInput" min="1" max="12" value="6" oninput="handleGridInputChange();" onchange="handleGridInputChange();" class="w-16 px-2 py-1 bg-white border border-slate-300 rounded-xl text-center font-black text-lg sm:text-xl text-amber-600 shadow-sm">
+                                        <span class="text-xs sm:text-sm text-slate-700 font-extrabold">列</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-xs sm:text-sm flex justify-between items-center px-1 font-bold text-slate-600 shrink-0">
+                                <span>現在のマス数: <b id="totalGridCalc" class="text-slate-900 font-black text-sm sm:text-base">36 マス</b></span>
+                                <span id="gridShortageText" class="text-rose-600 font-extrabold hidden">⚠️ マス数不足</span>
+                            </div>
 
                             <!-- 生徒人数設定 -->
-                            <div class="bg-amber-50 border border-amber-200 p-2.5 sm:p-3 rounded-xl flex justify-between items-center">
-                                <label class="text-xs sm:text-sm font-extrabold text-slate-800">生徒人数:</label>
-                                <div class="flex items-center gap-1.5">
-                                    <input type="number" id="studentCountInput" min="1" max="100" value="36" oninput="handleStudentCountChange()" onchange="handleStudentCountChange()" class="w-20 px-2 py-1 bg-white border border-amber-300 rounded-xl text-center font-black text-base sm:text-lg text-amber-700 shadow-sm focus:outline-none focus:border-amber-500">
-                                    <span class="font-black text-amber-800 text-xs sm:text-sm">名</span>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center">
-                                    <label class="block text-xs font-extrabold text-slate-600 mb-1">縦 (行数)</label>
-                                    <div class="flex items-center justify-center gap-2">
-                                        <input type="number" id="rowsInput" min="1" max="12" value="6" oninput="handleGridInputChange();" onchange="handleGridInputChange();" class="w-16 px-2 py-1 bg-white border border-slate-300 rounded-xl text-center font-black text-base sm:text-lg text-amber-600 shadow-sm">
-                                        <span class="text-xs text-slate-600 font-extrabold">行</span>
+                            <div class="bg-amber-50 border border-amber-200 p-2 sm:p-2.5 rounded-xl flex flex-col gap-1.5 shrink-0">
+                                <div class="flex justify-between items-center">
+                                    <label class="text-xs sm:text-sm font-extrabold text-slate-800">生徒人数:</label>
+                                    <div class="flex items-center gap-1.5">
+                                        <input type="number" id="studentCountInput" min="1" max="100" value="36" oninput="handleStudentCountChange()" onchange="handleStudentCountChange()" class="w-20 px-2 py-1 bg-white border border-amber-300 rounded-xl text-center font-black text-lg sm:text-xl text-amber-700 shadow-sm focus:outline-none focus:border-amber-500">
+                                        <span class="font-black text-amber-800 text-xs sm:text-sm">名</span>
                                     </div>
                                 </div>
-                                <div class="bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center">
-                                    <label class="block text-xs font-extrabold text-slate-600 mb-1">横 (列数)</label>
-                                    <div class="flex items-center justify-center gap-2">
-                                        <input type="number" id="colsInput" min="1" max="12" value="6" oninput="handleGridInputChange();" onchange="handleGridInputChange();" class="w-16 px-2 py-1 bg-white border border-slate-300 rounded-xl text-center font-black text-base sm:text-lg text-amber-600 shadow-sm">
-                                        <span class="text-xs text-slate-600 font-extrabold">列</span>
-                                    </div>
-                                </div>
+                                <button onclick="applyStudentCountToStep2()" class="w-full bg-amber-500 hover:bg-amber-400 text-white font-extrabold py-1.5 px-3 rounded-lg text-xs sm:text-sm shadow-sm transition active:scale-95 flex items-center justify-center gap-1">
+                                    <span>📋 人数をSTEP2の名簿に反映</span>
+                                </button>
                             </div>
 
-                            <div class="text-xs flex justify-between items-center px-1 font-bold text-slate-500">
-                                <span>現在のマス数: <b id="totalGridCalc" class="text-slate-800 font-black">36 マス</b></span>
-                                <span id="gridShortageText" class="text-rose-600 font-extrabold hidden">⚠️ マス数が不足しています</span>
-                            </div>
-                        </div>
-
-                        <button onclick="applyGridSettingsAndUnlockStep2()" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-black py-2.5 sm:py-3 px-4 rounded-xl text-xs md:text-sm shadow-md flex items-center justify-center gap-2 transition active:scale-95 mt-2">
-                            <span>STEP1➔STEP2へ (生徒枠確保 & レイアウト反映)</span>
-                            <span>➔</span>
-                        </button>
-                    </div>
-
-                    <!-- ステップ2: 生徒名簿 -->
-                    <div id="step2Container" class="md:col-span-7 bg-white border border-slate-200 p-4 sm:p-5 rounded-2xl flex flex-col justify-between shadow-md space-y-4 transition-all duration-300">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center border-b border-slate-100 pb-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="bg-amber-400 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded-full shadow-sm">STEP 2</span>
-                                    <h2 class="text-sm md:text-base font-black text-slate-800">生徒名簿の登録</h2>
-                                </div>
-                                <span id="studentCountBadge" class="text-xs bg-amber-100 text-amber-800 font-black px-2.5 py-1 rounded-full border border-amber-200">
-                                    登録人数: 36名 (男:18名 女:18名 未指定:0名)
-                                </span>
-                            </div>
-
-                            <!-- CSV取り込み・テンプレートダウンロードエリア -->
-                            <div class="bg-indigo-50/40 p-3 sm:p-3.5 rounded-2xl border border-indigo-100 space-y-2">
+                            <!-- CSV取り込み -->
+                            <div class="bg-indigo-50/50 p-2 sm:p-2.5 rounded-xl border border-indigo-100 space-y-1.5 shrink-0">
                                 <div class="flex justify-between items-center flex-wrap gap-1">
-                                    <label class="text-xs font-black text-indigo-900 flex items-center gap-1.5">
-                                        <span class="bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded-md font-black shadow-sm">CSV取り込み</span>
-                                        <span>CSVファイルから読み取る</span>
+                                    <label class="text-xs sm:text-sm font-black text-indigo-900 flex items-center gap-1">
+                                        <span class="bg-indigo-600 text-white text-[10px] sm:text-xs px-2 py-0.5 rounded-md font-black shadow-sm">CSV</span>
+                                        <span>ファイルから読み込み</span>
                                     </label>
-                                    <!-- テンプレートダウンロードボタン -->
-                                    <button onclick="downloadCSVTemplate()" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[11px] shadow-sm flex items-center gap-1 transition active:scale-95">
-                                        <span>📥</span> テンプレートCSVをダウンロード
+                                    <button onclick="downloadCSVTemplate()" class="px-2 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-sm flex items-center gap-1 transition active:scale-95">
+                                        <span>📥</span> テンプレート
                                     </button>
                                 </div>
-                                <div class="border-2 border-dashed border-indigo-300 hover:border-indigo-500 bg-white hover:bg-indigo-50/50 rounded-xl p-2.5 text-center relative cursor-pointer transition shadow-sm">
+                                <div class="border-2 border-dashed border-indigo-300 hover:border-indigo-500 bg-white hover:bg-indigo-50/50 rounded-xl p-2 text-center relative cursor-pointer transition shadow-sm">
                                     <input type="file" id="csvFileInput" accept=".csv" onchange="handleCSVSelect(event)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                                     <div class="flex items-center justify-center gap-2">
-                                        <span class="text-xl">📁</span>
+                                        <span class="text-lg">📁</span>
                                         <div class="text-left">
-                                            <p class="text-xs sm:text-sm font-black text-indigo-900">CSVを選択 または ドロップ</p>
-                                            <p class="text-[10px] text-indigo-600 font-bold">出席番号, 名前, ふりがな, 性別, 指定席 のCSVに対応</p>
+                                            <p class="text-xs sm:text-sm font-black text-indigo-900">CSVファイルを選択</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <button onclick="applyGridSettingsAndUnlockStep2()" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-black py-2.5 sm:py-3 px-4 rounded-xl text-sm sm:text-base shadow-md flex items-center justify-center gap-2 transition active:scale-95 mt-2 shrink-0">
+                            <span>STEP1➔STEP2へ (レイアウト反映)</span>
+                            <span>➔</span>
+                        </button>
+                    </div>
+
+                    <!-- ステップ2: 生徒名簿入力欄 -->
+                    <div id="step2Container" class="md:col-span-7 bg-white border border-slate-200 p-3.5 sm:p-4 rounded-2xl flex flex-col justify-between shadow-md h-full min-h-0 overflow-hidden">
+                        <div class="flex flex-col h-full min-h-0 space-y-2">
+                            <!-- ヘッダー -->
+                            <div class="flex justify-between items-center border-b border-slate-100 pb-1.5 shrink-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="bg-amber-400 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded-full shadow-sm">STEP 2</span>
+                                    <h2 class="text-base md:text-lg font-black text-slate-800">生徒名簿入力欄</h2>
+                                </div>
+                                <span id="studentCountBadge" class="text-xs sm:text-sm bg-amber-100 text-amber-900 font-black px-2.5 py-1 rounded-full border border-amber-200">
+                                    登録: 36名 (男:18女:18)
+                                </span>
+                            </div>
 
                             <!-- 生徒名簿テキスト入力エリア -->
-                            <div class="pt-1 space-y-2">
-                                <div class="flex justify-between items-center">
-                                    <label class="block text-xs font-black text-slate-700">✏ 生徒名簿 (1行に1名)</label>
-                                    <span class="text-[10px] sm:text-[11px] text-amber-800 font-extrabold bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">番号, 名前, ふりがな, 性別, [指定席: 行-列]</span>
+                            <div class="flex-1 flex flex-col min-h-0 space-y-1.5">
+                                <div class="flex justify-between items-center flex-wrap gap-1 shrink-0">
+                                    <label class="block text-xs sm:text-sm font-black text-slate-700">✏ 生徒名簿 (1行に1名)</label>
+                                    <span class="text-xs text-amber-800 font-extrabold bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">番号, 名前, ふりがな, 性別, [固定席: 行-列]</span>
                                 </div>
-                                <textarea id="studentListText" rows="7" oninput="parseStudentListText()" class="w-full p-3 bg-white border border-slate-300 rounded-xl font-mono text-xs md:text-sm text-slate-800 focus:outline-none focus:border-amber-500 shadow-sm leading-relaxed" placeholder="1, 田中 太郎, たなか たろう, 男, 1-1&#10;2, 佐藤 花子, さとう はなこ, 女&#10;3, 鈴木 一郎, すずき いちろう"></textarea>
+                                <!-- 名簿テキストのみスクロール可能 -->
+                                <textarea id="studentListText" oninput="parseStudentListText()" class="flex-1 w-full p-3 bg-white border border-slate-300 rounded-xl font-mono text-sm sm:text-base text-slate-800 focus:outline-none focus:border-amber-500 shadow-sm leading-relaxed overflow-y-auto resize-none min-h-0" placeholder="1, 田中 太郎, たなか たろう, 男, 1-1&#10;2, 佐藤 花子, さとう はなこ, 女&#10;3, 鈴木 一郎, すずき いちろう"></textarea>
                                 
                                 <!-- 座席指定（固定席）・性別の説明エリア -->
-                                <div class="bg-amber-50 border-2 border-amber-300 p-2.5 sm:p-3 rounded-xl flex items-start gap-2.5 shadow-sm">
-                                    <span class="text-xl shrink-0">📌</span>
-                                    <div class="text-xs text-amber-950 font-bold leading-relaxed">
-                                        <p class="font-black text-amber-900 text-xs sm:text-sm mb-0.5">【性別と座席指定（固定席）の設定】</p>
-                                        4項目目に「男」「女」を入力します。未入力・未指定の場合は男女カウントに含めず、全ての席に対応可能となります。<br>
-                                        5項目目に「<span class="bg-amber-200/80 px-1.5 py-0.5 rounded text-amber-900 font-black font-mono">1-1</span>」（1行目・1列目）のように指定すると固定配置できます。
+                                <div class="bg-amber-50 border-2 border-amber-300 p-2 sm:p-2.5 rounded-xl flex items-center gap-2 shadow-sm shrink-0">
+                                    <span class="text-lg shrink-0">📌</span>
+                                    <div class="text-xs sm:text-sm text-amber-950 font-bold leading-tight">
+                                        <span class="font-black text-amber-900">【入力形式】</span> 4項目目に「男」「女」、5項目目に「<span class="bg-amber-200/80 px-1 py-0.5 rounded text-amber-900 font-black font-mono">1-1</span>」（1行1列目）で固定配置できます。
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 移行ボタン -->
-                        <button onclick="switchTab('chart')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-black py-3 px-4 rounded-xl text-xs md:text-sm shadow-md flex items-center justify-center gap-2 transition active:scale-95 border border-emerald-400">
+                        <button onclick="switchTab('chart')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-black py-2.5 sm:py-3 px-4 rounded-xl text-sm sm:text-base shadow-md flex items-center justify-center gap-2 transition active:scale-95 border border-emerald-400 mt-2 shrink-0">
                             <span>座席配置・抽選画面へ進む</span>
                             <span>➔</span>
                         </button>
@@ -477,9 +478,9 @@
                     <!-- 抽選操作ボタン群 -->
                     <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                         
-                        <!-- グループ1: 1人ずつ抽選セット (縦並びレイアウトに変更) -->
+                        <!-- グループ1: 1人ずつ抽選セット -->
                         <div class="flex flex-col items-stretch gap-1 bg-amber-50 border border-amber-300 p-1.5 rounded-xl shadow-sm min-w-[130px]">
-                            <!-- 対象生徒表示エリア (1行目) -->
+                            <!-- 対象生徒表示エリア -->
                             <div id="nextStudentBox" class="flex items-center justify-center bg-white border border-amber-300 px-1.5 py-0.5 rounded-lg transition-all duration-200">
                                 <span id="nextStudentLabel" class="text-[10px] font-black text-amber-800 mr-1 shrink-0">次:</span>
                                 <span id="currentStudentDisplay" class="text-xs font-black text-slate-900 truncate max-w-[110px] sm:max-w-[130px]">
@@ -487,7 +488,7 @@
                                 </span>
                             </div>
 
-                            <!-- 抽選ボタン (2行目) -->
+                            <!-- 抽選ボタン -->
                             <button id="drawOneBtn" onclick="drawSingleSeat()" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-900 font-black px-2.5 py-1 rounded-lg transition text-xs sm:text-sm flex items-center justify-center gap-1 shadow-sm w-full">
                                 ☝ 1人ずつ抽選
                             </button>
@@ -691,7 +692,7 @@
         let isAnimating = false;
         let selectedSeatForSwap = null;
         let seatGrid = [];
-        let isRowDrawingActive = false; // 「行ごと」抽選継続中フラグ
+        let isRowDrawingActive = false;
 
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx = null;
@@ -892,6 +893,31 @@
             updateCalcSeats();
         }
 
+        /* STEP1の人数をSTEP2の名簿入力欄に反映するボタン処理 */
+        function applyStudentCountToStep2() {
+            targetStudentCount = parseInt(document.getElementById('studentCountInput').value) || 0;
+            const textarea = document.getElementById('studentListText');
+            if (!textarea) return;
+
+            const currentText = textarea.value.trim();
+            if (currentText === '') {
+                generateStudentsForCount(targetStudentCount);
+            } else {
+                let listLines = currentText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+                if (listLines.length < targetStudentCount) {
+                    for (let i = listLines.length + 1; i <= targetStudentCount; i++) {
+                        let g = (i % 2 === 1) ? '男' : '女';
+                        listLines.push(`${i}, 生徒${i}, せいと${i}, ${g}`);
+                    }
+                } else if (listLines.length > targetStudentCount) {
+                    listLines = listLines.slice(0, targetStudentCount);
+                }
+                textarea.value = listLines.join('\n');
+                parseStudentListText();
+            }
+            playSound('pop');
+        }
+
         function handleGridInputChange() {
             const rInput = parseInt(document.getElementById('rowsInput').value) || 1;
             const cInput = parseInt(document.getElementById('colsInput').value) || 1;
@@ -928,31 +954,13 @@
             cols = parseInt(document.getElementById('colsInput').value) || 6;
             targetStudentCount = parseInt(document.getElementById('studentCountInput').value) || 36;
 
-            const textarea = document.getElementById('studentListText');
-            if (textarea) {
-                const currentText = textarea.value.trim();
-                if (currentText === '') {
-                    generateStudentsForCount(targetStudentCount);
-                } else {
-                    parseStudentListText();
-                    if (students.length < targetStudentCount) {
-                        let listLines = currentText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-                        for (let i = listLines.length + 1; i <= targetStudentCount; i++) {
-                            let g = (i % 2 === 1) ? '男' : '女';
-                            listLines.push(`${i}, 生徒${i}, せいと${i}, ${g}`);
-                        }
-                        textarea.value = listLines.join('\n');
-                        parseStudentListText();
-                    }
-                }
-            }
+            applyStudentCountToStep2();
 
             if (!seatGrid || seatGrid.length !== rows || (seatGrid[0] && seatGrid[0].length !== cols)) {
                 initGrid();
             }
             renderGridUI();
             updateDrawingStatus();
-            playSound('pop');
 
             const step2 = document.getElementById('step2Container');
             if (step2) step2.scrollIntoView({ behavior: 'smooth' });
@@ -992,13 +1000,13 @@
             if (tab === 'setup') {
                 p1.classList.remove('hidden');
                 p2.classList.add('hidden');
-                t1.className = "px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm";
-                t2.className = "px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1";
+                t1.className = "px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm";
+                t2.className = "px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1";
             } else {
                 p1.classList.add('hidden');
                 p2.classList.remove('hidden');
-                t2.className = "px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm";
-                t1.className = "px-3 sm:px-5 py-1.5 sm:py-2 font-black text-xs sm:text-sm rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1";
+                t2.className = "px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-amber-400 text-slate-900 flex items-center gap-1 shadow-sm";
+                t1.className = "px-4 sm:px-6 py-1.5 sm:py-2 font-black text-xs sm:text-base rounded-t-xl bg-white text-slate-500 hover:bg-slate-50 border border-b-0 border-slate-200 transition flex items-center gap-1";
                 setTimeout(renderGridUI, 50);
                 updateDrawingStatus();
             }
@@ -1009,7 +1017,6 @@
             for (let r = 0; r < rows; r++) {
                 let rowArr = [];
                 for (let c = 0; c < cols; c++) {
-                    // targetGender: 'any'(共通), 'boy'(男子専用), 'girl'(女子専用)
                     rowArr.push({ enabled: true, targetGender: 'any', student: null, isReserved: false });
                 }
                 seatGrid.push(rowArr);
@@ -1017,10 +1024,9 @@
             applyReservedSeatsToGrid();
         }
 
-        /* CSVテンプレートダウンロード処理（Excelの日付変換防止修正済み） */
+        /* CSVテンプレートダウンロード処理 */
         function downloadCSVTemplate() {
             const templateHeader = "出席番号,名前,ふりがな,性別,指定席\n";
-            // 指定席の例の先頭にシングルクォーテーション(')を付けて日付化を防止
             const sampleData = [
                 "1,山田 太郎,やまだ たろう,男,'1-1",
                 "2,佐藤 花子,さとう はなこ,女,'1-2",
@@ -1028,7 +1034,7 @@
                 "4,田中 美咲,たなか みさき,女,"
             ].join("\n");
             
-            const csvContent = "\uFEFF" + templateHeader + sampleData; // UTF-8 BOM付き
+            const csvContent = "\uFEFF" + templateHeader + sampleData;
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1051,7 +1057,6 @@
                 let name = parts[1] || parts[0];
                 let kana = parts[2] || "";
                 
-                // 4項目目: 性別解析 (未入力の場合は 'none')
                 let genderRaw = parts[3] || '';
                 let gender = 'none';
                 if (genderRaw.includes('男')) {
@@ -1060,7 +1065,6 @@
                     gender = 'girl';
                 }
 
-                // 5項目目: 指定席
                 let reservedPos = null;
                 if (parts.length >= 5 && parts[4]) {
                     const posParts = parts[4].replace(/['"]/g, '').split('-');
@@ -1081,7 +1085,7 @@
             const noneCnt = students.filter(s => s.gender === 'none').length;
 
             const badge = document.getElementById('studentCountBadge');
-            if (badge) badge.innerText = `登録人数: ${students.length}名 (男:${maleCnt}名 女:${femaleCnt}名 未指定:${noneCnt}名)`;
+            if (badge) badge.innerText = `登録: ${students.length}名 (男:${maleCnt} 女:${femaleCnt})`;
             
             const totalCnt = document.getElementById('studentsTotalCount');
             if (totalCnt) totalCnt.innerText = students.length;
@@ -1123,7 +1127,7 @@
             renderGridUI();
         }
 
-        /* CSVファイル読み込み処理（Shift_JIS文字化け防止・クォーテーション除去修正済み） */
+        /* CSVファイル読み込み処理 */
         function handleCSVSelect(e) {
             const file = e.target.files[0];
             if (!file) return;
@@ -1166,7 +1170,6 @@
                     playSound('pop');
                 }
             };
-            // Excelなどで保存されたShift_JISに対応
             reader.readAsText(file, 'Shift_JIS');
         }
 
@@ -1317,7 +1320,6 @@
 
             document.getElementById('activeSeatsCount').innerText = activeCount;
 
-            // 男女別席数過不足の集計・表示
             updateGenderSeatBalanceUI(boySeats, girlSeats, anySeats);
 
             const studentCount = students.length;
@@ -1334,7 +1336,6 @@
             }
         }
 
-        /* 男女人数過不足の計算・表示 */
         function updateGenderSeatBalanceUI(boySeats, girlSeats, anySeats) {
             const maleStudents = students.filter(s => s.gender === 'boy').length;
             const femaleStudents = students.filter(s => s.gender === 'girl').length;
@@ -1366,11 +1367,9 @@
             balanceEl.innerText = textParts.join(' | ');
         }
 
-        /* 座席タップ処理（共通 ➔ 通路 ➔ 男子席 ➔ 女子席 の順に変更） */
         function handleSeatClick(r, c) {
             if (isAnimating) return;
 
-            // 既に生徒が入っているか移動選択モードの場合
             if (seatGrid[r][c].student || selectedSeatForSwap) {
                 if (!selectedSeatForSwap) {
                     selectedSeatForSwap = { r, c };
@@ -1394,21 +1393,16 @@
                 return;
             }
 
-            // マス設定タップ切り替え： 共通 ➔ 通路 ➔ 男子 ➔ 女子
             const current = seatGrid[r][c];
             if (current.enabled && current.targetGender === 'any') {
-                // 1. 共通 ➔ 通路（無効）
                 current.enabled = false;
                 current.targetGender = 'any';
             } else if (!current.enabled) {
-                // 2. 通路 ➔ 男子席
                 current.enabled = true;
                 current.targetGender = 'boy';
             } else if (current.enabled && current.targetGender === 'boy') {
-                // 3. 男子席 ➔ 女子席
                 current.targetGender = 'girl';
             } else if (current.enabled && current.targetGender === 'girl') {
-                // 4. 女子席 ➔ 共通席
                 current.targetGender = 'any';
             }
 
@@ -1513,11 +1507,10 @@
             setButtonsDisabled(isAnimating);
         }
 
-        /* 性別互換チェック関数（未指定: 'none' はどの席も可能） */
         function isGenderCompatible(student, seat) {
             if (!seat.enabled || seat.student) return false;
             if (seat.targetGender === 'any') return true;
-            if (student.gender === 'none') return true; // 性別未指定の生徒は男子席・女子席とも対応可
+            if (student.gender === 'none') return true;
             if (seat.targetGender === 'boy' && student.gender === 'boy') return true;
             if (seat.targetGender === 'girl' && student.gender === 'girl') return true;
             return false;
@@ -1796,10 +1789,8 @@
 
             let unassignedStudents = students.filter(s => !s.reservedPos).sort(() => Math.random() - 0.5);
 
-            // 専用席から割り当て優先
             let pool = [...unassignedStudents];
 
-            // 1: 男子専用席・女子専用席
             availableSlots.forEach(slot => {
                 const seat = seatGrid[slot.r][slot.c];
                 if (seat.targetGender !== 'any') {
@@ -1811,7 +1802,6 @@
                 }
             });
 
-            // 2: 残りの共通席
             availableSlots.forEach(slot => {
                 const seat = seatGrid[slot.r][slot.c];
                 if (!seat.student && seat.targetGender === 'any') {
