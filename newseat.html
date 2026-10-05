@@ -478,7 +478,7 @@
                     <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                         
                         <!-- グループ1: 1人ずつ抽選セット -->
-                        <div class="flex flex-col items-stretch gap-1 bg-amber-50 border border-amber-300 p-1.5 rounded-xl shadow-sm min-w-[130px]">
+                        <div class="flex flex-col items-stretch gap-1 bg-amber-50 border border-amber-300 p-1.5 rounded-xl shadow-sm min-w-[140px]">
                             <!-- 対象生徒表示エリア -->
                             <div id="nextStudentBox" class="flex items-center justify-center bg-white border border-amber-300 px-1.5 py-0.5 rounded-lg transition-all duration-200">
                                 <span id="nextStudentLabel" class="text-[10px] font-black text-amber-800 mr-1 shrink-0">次:</span>
@@ -487,10 +487,16 @@
                                 </span>
                             </div>
 
-                            <!-- 抽選ボタン -->
-                            <button id="drawOneBtn" onclick="drawSingleSeat()" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-900 font-black px-2.5 py-1 rounded-lg transition text-xs sm:text-sm flex items-center justify-center gap-1 shadow-sm w-full">
-                                ☝ 1人ずつ抽選
-                            </button>
+                            <!-- 順番選択と抽選ボタン -->
+                            <div class="flex items-center gap-1">
+                                <select id="singleDrawOrder" onchange="handleSingleDrawOrderChange()" class="bg-white text-amber-900 font-bold text-xs rounded-lg px-1 py-1 focus:outline-none border border-amber-300">
+                                    <option value="random">ランダム</option>
+                                    <option value="number">番号順</option>
+                                </select>
+                                <button id="drawOneBtn" onclick="drawSingleSeat()" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-slate-900 font-black px-2 py-1 rounded-lg transition text-xs sm:text-sm flex items-center justify-center gap-1 shadow-sm w-full">
+                                    ☝ 1人ずつ
+                                </button>
+                            </div>
                         </div>
 
                         <!-- グループ2: 行ごとボタン -->
@@ -1427,11 +1433,21 @@
         function pickRandomNextStudent() {
             const unassigned = getUnassignedStudents();
             if (unassigned.length > 0) {
-                const randomIndex = Math.floor(Math.random() * unassigned.length);
-                nextRandomStudent = unassigned[randomIndex];
+                const orderMode = document.getElementById('singleDrawOrder') ? document.getElementById('singleDrawOrder').value : 'random';
+                if (orderMode === 'number') {
+                    nextRandomStudent = unassigned[0];
+                } else {
+                    const randomIndex = Math.floor(Math.random() * unassigned.length);
+                    nextRandomStudent = unassigned[randomIndex];
+                }
             } else {
                 nextRandomStudent = null;
             }
+        }
+
+        function handleSingleDrawOrderChange() {
+            pickRandomNextStudent();
+            updateDrawingStatus();
         }
 
         function getNextUnassignedStudent() {
